@@ -14,13 +14,13 @@
 
 <body>
     <div class="container mt-3">
-        <form>
+        <form id="userData" enctype="application/json">
             <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <label for="firstName">Vorname</label>
                         <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp"
-                            placeholder="Vorname" required>
+                            placeholder="Vorname" required minlength="3" name="firstName">
                         <small id="firstNameHelp" class="form-text text-muted">Dein Vorname</small>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label for="lastName">Nachname</label>
                         <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp"
-                            placeholder="Vorname" required>
+                            placeholder="Vorname" required minlength="3" name="lastName">
                         <small id="lastNameHelp" class="form-text text-muted">Dein Nachname</small>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label for="email">Email Adresse</label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                            placeholder="E-mail" required>
+                            placeholder="E-mail" required name="email">
                         <small id="emailHelp" class="form-text text-muted">Deine Email-Adresse</small>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="street">Straße</label>
                         <input type="text" class="form-control" id="street" aria-describedby="streetHelp"
-                            placeholder="Strasse" required>
+                            placeholder="Strasse" required name="street">
                         <small id="streetHelp" class="form-text text-muted">Deine Strasse</small>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <label for="streetNumber">Hausnummer</label>
                         <input type="text" class="form-control" id="streetNumber" aria-describedby="streetNumberHelp"
-                            placeholder="Hausnummer" required>
+                            placeholder="Hausnummer" required name="streetNumber">
                         <small id="streetNumberHelp" class="form-text text-muted">Deine Hausnummer</small>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                 <div class="col-2">
                     <div class="form-group">
                         <label for="zipCode">PLZ</label>
-                        <input type="text" class="form-control" id="zipCode" aria-describedby="zipCodeHelp"
-                            placeholder="PLZ" required>
+                        <input type="number" class="form-control" id="zipCode" aria-describedby="zipCodeHelp"
+                            placeholder="PLZ" required minlength="5" maxlength="5" min="0" name="zipCode">
                         <small id="zipCodeHelp" class="form-text text-muted">Deine Postleitzahl</small>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <div class="form-group">
                         <label for="city">Stadt</label>
                         <input type="text" class="form-control" id="city" aria-describedby="cityHelp"
-                            placeholder="Stadt" required>
+                            placeholder="Stadt" required minlength="3" name="city">
                         <small id="cityHelp" class="form-text text-muted">Deine Stadt</small>
                     </div>
                 </div>
@@ -82,23 +82,26 @@
             <div class="form-group">
                 <label for="birthday">Geburtsdatum</label>
                 <input type="date" class="form-control" id="birthday" aria-describedby="birthdayHelp"
-                    placeholder="Geburtsdatum" required>
+                    placeholder="Geburtsdatum" required name="birthday">
                 <small id="birthdayHelp" class="form-text text-muted">Dein Geburtsdatum</small>
             </div>
             <div class="form-group">
                 <label for="phone">Telefon</label>
                 <input type="text" class="form-control" id="phone" aria-describedby="phoneHelp"
-                    placeholder="Telefonnummer" required>
+                    placeholder="Telefonnummer" required minlength="3" name="phone">
                 <small id="phoneHelp" class="form-text text-muted">Deine Telefonnummer</small>
             </div>
             <div class="form-group">
                 <label for="iban">IBAN</label>
-                <input type="text" class="form-control" id="iban" aria-describedby="phoneHelp" placeholder="IBAN" required>
+                <input type="text" class="form-control" id="iban" aria-describedby="phoneHelp" placeholder="IBAN" required
+                pattern="[A-Z]\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{2}|DE\d{20}" name="iban">
                 <small id="phoneHelp" class="form-text text-muted">Deine IBAN</small>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Ok</button>
         </form>
     </div>
+    <script src="index.js" type="module"></script>
+    <script src="ajax.js" type="module"></script>
 </body>
 
 </html>
